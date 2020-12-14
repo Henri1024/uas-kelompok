@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css"
+    rel="stylesheet" id="bootstrap-css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="main.js" /> -->
+
+</head>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: sans-serif;
+  }
+
+  body {
+    background-image: url("/image/motor/harleydavidson/Harley.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+  }
+
+  label {
+    color: white;
+  }
+
+  .label {
+    color: white;
+  }
+
+  .frame {
+    height: 800px;
+    width: 100%;
+  }
+
+  .wrapper {
+    margin-left: 350px;
+    margin-top: 75px;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+
+  }
+
+  .aggreement-form {
+    max-width: 600px;
+    max-height: 750px;
+    margin-left: 100px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  }
+
+  .aggreement-form h4 {
+    color: #c5ecfd;
+    font-size: 12px;
+  }
+
+  .input-fields h1 {
+    text-align: center;
+    color: white;
+
+  }
+
+  .input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+    width: 500px;
+  }
+
+  .input-fields .input {
+    margin: 10px 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #c5ecfd;
+    padding: 10px;
+    color: #c5ecfd;
+    width: 100%;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #c5ecfd;
+  }
+
+  .btn2 {
+    background: #39b7dd;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 13px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    height: 40px;
+  }
+
+  #custom-button {
+    background: #39b7dd;
+    margin-top: 10px;
+    text-align: center;
+    font-size: smaller;
+    padding-top: 6px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 120px;
+    height: 30px;
+  }
+
+  .radio {
+
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+  }
+
+  .radio input {
+    width: 20px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .content {
+    height: 150px;
+    width: 150px;
+    border: 2px dashed #c2cdda;
+  }
+
+  .text {
+    text-align: center;
+    font-size: small;
+    padding-top: 10px;
+    color: white;
+  }
+
+  .icon {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 50px;
+  }
+
+  nav {
+    background-color: #000;
+    padding: 0;
+  }
+
+  nav .container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  nav .container .navbar-brand {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  .nav-link:hover {
+    color: #f3f3f3 !important;
+  }
+
+  footer {
+    background-color: #000000 !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 2rem !important;
+    }
+
+    .product-show {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a class="navbar-brand navbar-nav mr-auto" href="/">MotoBike Rental</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ml-auto">
+          <li data-toggle="collapse" data-target=".navbar-collapse">
+            <a href="/" class="nav-item nav-link">Home</a>
+          </li>
+          <!-- <li data-toggle="collapse" data-target=".navbar-collapse">
+          <a href="#location-id" class="nav-item nav-link">Products</a>
+        </li> -->
+          <form id="tableForm" action="getJson">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Produk
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/motor">Motor</a>
+                <a class="dropdown-item" href="/mobil">Mobil</a>
+              </div>
+            </li>
+          </form>
+
+          <li data-toggle="collapse" data-target=".navbar-collapse">
+            <a href="/aboutus" class="nav-item nav-link">About Us</a>
+          </li>
+          <% if(logged){ %>
+
+            <li data-toggle="collapse" data-target=".navbar-collapse">
+              <a href="/user/transaksi" class="nav-item nav-link">History</a>
+            </li>
+
+            <li data-toggle="collapse" data-target=".navbar-collapse">
+              <a href="/user/logout" class="nav-item nav-link">Logout</a>
+            </li>
+            <% } else{ %>
+              <li data-toggle="collapse" data-target=".navbar-collapse">
+                <a href="/user/login" class="nav-item nav-link">Login</a>
+              </li>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="frame">
+    <div class="wrapper">
+      <div class="aggreement-form">
+        <div class="input-fields">
+          <%- include ("partials/messages"); %>
+            <h1> Formulir Pemesanan</h1>
+
+            <h3 style="color: white;">
+              <%- item.merk %>
+                <%- item.tipe %>
+            </h3>
+
+            <form action="http://localhost:3000/mobil/<%- item.id %>/rent" method="POST">
+              <input type="text" class="input" placeholder="Nama" id="fieldnama" name="fieldnama" required
+                value="<%= typeof fieldnama != 'undefined' ? fieldnama : '' %>">
+              <input type="number" class="input" placeholder="No KTP" id="noktp" name="noktp" required
+                value="<%= typeof noktp != 'undefined' ? noktp : '' %>">
+              <input type="email" class="input" placeholder="Email" id="emailaddr" name="emailaddr" required
+                value="<%= typeof emailaddr != 'undefined' ? emailaddr : '' %>">
+              <input type="number" class="input" placeholder="No Telepon" id="notlp" name="notlp" required
+                value="<%= typeof notlp != 'undefined' ? notlp : '' %>">
+              <br>
+
+              <h4>Kapan anda mau mulai menyewa:</h4>
+              <input type='date' class="form-control" id="datestart" name="datestart" required
+                value="<%= typeof datestart != 'undefined' ? datestart : '' %>" />
+
+
+              <h4>Sampai tanggal berapa anda mau menyewanya:</h4>
+              <input type='date' class="form-control" id="dateend" name="dateend" required
+                value="<%= typeof dateend != 'undefined' ? dateend : '' %>" />
+
+              <br>
+              <input type="text" class="input" placeholder="Harga" id="harga" name="harga" disabled required
+                value="<%= typeof harga != 'undefined' ? harga : 0 %>">
+              <br>
+
+              <br><br>
+              <div class="text-center">
+                <a class="btn-cancel" id="cancel-btn" href='./'>Cancel</a>
+                <button type="submit" class="btn-submit" id="book-btn">Book</button>
+              </div>
+
+            </form>
+            <script type="text/javascript">
+              const bookbtn = document.getElementById("book-btn")
+              bookbtn.addEventListener("click", function () {
+
+                const nama = document.getElementById('fieldnama').value != ""
+                const noktp = document.getElementById('noktp').value != ""
+                const emailaddr = document.getElementById('emailaddr').value != ""
+                const notlp = document.getElementById('notlp').value != ""
+                const datestart = document.getElementById('datestart').value != ""
+                const dateend = document.getElementById('dateend').value != ""
+              })
+            </script>
+
+
+            <script>
+              var itemstr = '<%- JSON.stringify(item) %>';
+              var item = JSON.parse(itemstr);
+              const datepickend = $('#dateend').on("change", function () {
+                var validdatestart = new Date(datestart.value)
+                var validdateend = new Date(dateend.value)
+                var Difference_In_Time = validdatestart.getTime() - validdateend.getTime();
+                var Difference_In_Days = Math.abs(Difference_In_Time / (1000 * 3600 * 24));
+
+                var tot = 0;
+
+                if (Difference_In_Days > 7) {
+                  tot = tot + Math.floor(Difference_In_Days / 7) * item.harga.mingguan;
+                }
+
+                tot = tot + (Difference_In_Days % 7) * item.harga.harian;
+
+                console.log(tot);
+
+                $('#harga').val('Harga : Rp ' + tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+
+              })
+
+            </script>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-1">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+      <div class=" row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold text-white">MotoBike Rent Center</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p class="text-white">Layanan Rental Mobil dan Sepeda Motor Terbesar di Bali.
+            Melayani Untuk Pemakaian Pribadi Maupun Photoshot
+          </p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold text-white">Products</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p><a href="./motor">Motor</a></p>
+          <p><a href="./mobil">Mobil</a></p>
+        </div>
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase font-weight-bold text-white">Contact</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;"><br>
+          <p class="fa fa-home mr-3 text-white"> Klukung, Bali 80761, IDN</p><br>
+          <p class="fa fa-envelope mr-3 text-white"> info@motobike.com</p><br>
+          <p class="fa fa-phone mr-3 text-white"> +62 852 8899 6689</p><br>
+
+        </div>
+      </div>
+
+      <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
+        <a href="/"> MotoBikeRental.com</a>
+      </div>
+  </footer>
+
+</body>
+
+</html>

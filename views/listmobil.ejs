@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    MotoBike Rent Center - layanan rental mobil dan sepeda motor terbesar di bali
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- <link rel="stylesheet" href="main.js" /> -->
+
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #f3f3f3 !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: #000000;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  nav {
+    background-color: #000;
+    padding: 0;
+  }
+
+  nav .container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  nav .container .navbar-brand {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  .nav-link:hover {
+    color: #f3f3f3 !important;
+  }
+
+  .btn-rent {
+    width: 100%;
+    font-size: large !important;
+    font-weight: 500 !important;
+    border: solid 1px black;
+    /* font-stretch: extra-expanded !important; */
+    color: white !important;
+  }
+
+
+  .product-show {
+    position: relative;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    background-color: #000000 !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 2rem !important;
+    }
+
+    .product-show {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row  dropdown-row flex-row-reverse">
+          <div id="sorter" class="dropdown mr-2">
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-sort-by" data-toggle="dropdown">
+              Urutkan Berdasarkan
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Harga Terendah</a>
+              <a class="dropdown-item" href="#">Harga Tertinggi</a>
+              <a class="dropdown-item" href="#">Produk Terbaru</a>
+            </div>
+          </div>
+          <div id="merk-motor" class="dropdown mr-2">
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-merk-motor" data-toggle="dropdown">
+              Merk mobil
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Toyota</a>
+              <a class="dropdown-item" href="#">Mercedes</a>
+              <a class="dropdown-item" href="#">Daihatsu</a>
+              <a class="dropdown-item" href="#">Semua</a>
+            </div>
+          </div>
+        </div>
+        <div id="list-cars" class="product-show">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var datastring = '<%- JSON.stringify(items) %>';
+  </script>
+
+  <script src="./js/script2.js"></script>
+</body>
+
+</html>

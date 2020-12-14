@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- <link rel="stylesheet" href="main.js" /> -->
+
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background: linear-gradient(#fff, #f9ffd6);
+        position: relative;
+    }
+
+    nav {
+        background-color: black;
+        padding: 0;
+    }
+
+    nav .container {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    nav .container .navbar-brand {
+        font-weight: 600;
+        font-size: 2rem;
+        color: #ffffff;
+    }
+
+    .nav-link {
+        font-weight: 400;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .nav-link:hover {
+        color: #f3f3f3 !important;
+    }
+
+    .container {
+        margin-top: 20px;
+        padding-bottom: 20px;
+
+    }
+
+    .col-md-6 .center {
+        opacity: 0;
+        margin: 0;
+        animation: ani2 1s ease-out 1s forwards;
+    }
+
+    .col-md-6 h4 {
+        opacity: 0;
+        margin: 0;
+        text-align: justify;
+        animation: ani2 1s ease-out 2s forwards;
+    }
+
+    .col-md-6 p {
+        opacity: 0;
+        margin: 0;
+        animation: ani2 1s ease-out 2s forwards;
+        text-align: justify;
+    }
+
+    .btn1 {
+        opacity: 0;
+        margin: 0;
+        animation: ani2 1s ease-out 3s forwards;
+    }
+
+    .col-md-12 h5 {
+        opacity: 0;
+        margin: 0;
+        animation: ani2 1s ease-out 3s forwards;
+    }
+
+    .motor-img {
+        top: 50%;
+        height: auto;
+        width: 100%;
+        animation: run 1.5s linear 1;
+    }
+
+    li p {
+        text-indent: 1rem;
+    }
+
+    .btn1 {
+        background: #f9ffd6;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+        padding-top: 8px;
+        border: 2px solid black;
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        text-transform: uppercase;
+        height: 40px;
+        box-shadow: 10px 10px 5px #ccc;
+        -moz-box-shadow: 10px 10px 5px #ccc;
+        -webkit-box-shadow: 10px 10px 5px #ccc;
+        -khtml-box-shadow: 10px 10px 5px #ccc;
+    }
+
+    footer {
+        background-color: black;
+    }
+
+
+
+    @keyframes ani2 {
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes run {
+        0% {
+            transform: translate(-100px, -100px);
+        }
+
+        100% {
+            transform: translate(0px, 0px);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row m-2">
+            <div class="col-md-6 align-self-center">
+                <img alt="motor-img" class="motor-img mx-auto">
+
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">
+                    <%- item.merk + " " + item.tipe+" ("+item.spesifikasi.tahun+")" ; %>
+                </h2>
+                <hr class="my-2">
+                <ul id="deskripsi" class="m-5">
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h5>
+                <%- item.spesifikasi.detail[0]%>
+            </h5>
+            <h5 id="harian"></h5>
+            <h5 id="mingguan"></h5>
+        </div>
+    </div>
+
+    <script>
+
+        function convert(value) {
+            if (value >= 1000000) {
+                value = (value / 1000000) + " Jt";
+            }
+            else if (value >= 1000) {
+                value = (value / 1000) + " Rb";
+            }
+            return value;
+        };
+
+        harian = ' <%- item.harga.harian %>'
+        mingguan = ' <%- item.harga.mingguan %>'
+
+        $('#harian').text('Per Hari : ' + convert(harian))
+        $('#mingguan').text('Per Minggu : ' + convert(mingguan))
+
+        var img = ('/image/motor/' + '<%- item.foto %>');
+        // console.log(img);
+        $('img').attr("src", img);
+
+
+        deskripsi = ('<%- item.spesifikasi.detail %>').split(',')
+        iter = 0
+        deskripsi.forEach(element => {
+            if (!element.includes('arna')) {
+                $('#deskripsi').append(`<h5>${iter + ". " + element}</h5>`);
+            }
+            iter = iter + 1
+        });
+        var id = '<%- item.id %>'
+        $('#deskripsi').append(`<a id="rent-btn"><span class="btn1" style="display:block;">BOOK</span ></a>`)
+
+        $('#rent-btn').attr("href", "http://localhost:3000/motor/<%- item.id %>/rent")
+    </script>
+</body>
+
+</html>
